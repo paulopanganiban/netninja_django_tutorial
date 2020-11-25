@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('polls/', include('polls.urls'))
     path('about/', views.about),
-    path('', views.homepage)
-
+    path('', views.homepage),
+    path('articles/', include('articles.urls')),
 ]
