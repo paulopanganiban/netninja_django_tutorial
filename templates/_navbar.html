@@ -1,5 +1,6 @@
+{% load static %}
 <nav class="navbar navbar-dark bg-primary mb-4">
 	<div class="container">
-		<a class="navbar-brand" href="/">Djangonautics</a>
+		<a class="navbar-brand" href="{% url 'articles:list' %}"><img src="{% static 'logo.png' %}" alt="logo"></a>
 	</div>
 </nav>

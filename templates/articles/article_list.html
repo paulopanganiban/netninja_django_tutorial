@@ -5,7 +5,11 @@
     <ul class="list-group">
     {% for article in articlesOLO %}
     <div class="articlem">
-            <li class="list-group-item container-sm width:50%">{{article.title}}</li>
+            <li class="list-group-item container-sm width:50%">
+                <a href="{% url 'articles:detail' slug=article.slug %}">
+              {{article.title}}
+                </a>
+            </li>
             <p>{{article.snippet}}</p>
             <p>{{article.date}}</p>
           </ul>
