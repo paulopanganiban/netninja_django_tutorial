@@ -121,5 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
+    #djangonautic/assets folder name = 'assets'
     os.path.join(BASE_DIR, 'assets'), #grabs the root directory of the project = djangonautic
 )
