@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import  views
+
+#static files
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
 #from django.confs.urls import url
 # 1.11 vs 3.1.3 
 urlpatterns = [
@@ -26,3 +31,5 @@ urlpatterns = [
     path('', views.homepage),
     path('articles/', include('articles.urls')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
