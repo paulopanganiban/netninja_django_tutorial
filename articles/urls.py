@@ -8,7 +8,7 @@ app_name = 'articles'
 urlpatterns = [
     path('', views.article_list, name='list'),
                                 # {% url 'list' %}
-    path('<slug:slug>', views.article_detail, name='detail'),
+    path('<int:slug_id>', views.article_detail, name='detail'),
     # '<slug: is the TYPE of the PASSED parameter
     # <slug ay yung pinasa ng user
     # :slug> name ng parameter na gagamitin sa url na pwedeng articles/detail/asdasdasd --> asdasd iqquery natin sa views.py

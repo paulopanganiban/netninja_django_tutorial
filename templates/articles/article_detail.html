@@ -1,4 +1,7 @@
-{% extends '_base.html' %}
+{% extends '_base.html' %} 
 {% block content %}
-<h4></h4>
+<h4>{{article.slug}}</h4>
+<h5>{{article.title}}</h5>
+<h5>{{article.body}}</h5>
+<h5>{{article.date}}</h5>
 {% endblock %}

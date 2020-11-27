@@ -6,7 +6,7 @@
     {% for article in articlesOLO %}
     <div class="articlem">
             <li class="list-group-item container-sm width:50%">
-                <a href="{% url 'articles:detail' slug=article.slug %}">
+                <a href="{% url 'articles:detail' article.id %}">
               {{article.title}}
                 </a>
             </li>

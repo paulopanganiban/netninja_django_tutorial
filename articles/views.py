@@ -12,8 +12,11 @@ def article_list(request):
     return render(request, 'articles/article_list.html', context)
 
 
-def article_detail(request, slug):
-    # 
+def article_detail(request, slug_id):
+    article = Article.objects.get(pk=slug_id)
+    context = {'article': article}
+    return render(request, 'articles/article_detail.html', context)
+    #
     # gagamit tayo ng query
     # try:
     #     detail = Article.objects.get(pk=slug)
@@ -21,4 +24,4 @@ def article_detail(request, slug):
     #     raise Http404
     # context = {'detail': detail}
     # return render(request, 'articles/article_detail.html', context)
-    return HttpResponse(slug)
+    # return HttpResponse(slug)
