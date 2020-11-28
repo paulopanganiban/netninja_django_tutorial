@@ -19,8 +19,9 @@ from . import  views
 
 #static files
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-
+#media files upload the static folders
+from django.conf.urls.static import static
+from django.conf import settings #we have access sa properties na mediaurls
 #from django.confs.urls import url
 # 1.11 vs 3.1.3 
 urlpatterns = [
@@ -33,3 +34,4 @@ urlpatterns = [
 ]
 
 urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

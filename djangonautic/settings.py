@@ -124,3 +124,7 @@ STATICFILES_DIRS = (
     #djangonautic/assets folder name = 'assets'
     os.path.join(BASE_DIR, 'assets'), #grabs the root directory of the project = djangonautic
 )
+
+# media url :8000/media/pic.jpg
+MEDIA_URL = '/media/' #anything you like
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # django will upload the files here. BASE_DIR = djangonautic root folder
