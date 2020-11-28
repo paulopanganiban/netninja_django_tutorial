@@ -30,7 +30,9 @@ urlpatterns = [
     #path('polls/', include('polls.urls'))
     path('about/', views.about),
     path('', views.homepage),
+    # including apps
     path('articles/', include('articles.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
