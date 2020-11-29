@@ -7,6 +7,7 @@ app_name = 'articles'
 # so parang sa html, app_name:name / articles:detail
 urlpatterns = [
     path('', views.article_list, name='list'),
+    path('create/', views.article_create, name='create'),
                                 # {% url 'list' %}
     path('<int:slug_id>', views.article_detail, name='detail'),
     # '<slug: is the TYPE of the PASSED parameter

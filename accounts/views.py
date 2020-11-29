@@ -3,6 +3,7 @@ from django.http.response import Http404, HttpResponse
 
 # Django auth
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout
 # Create your views here.
 
 
@@ -22,14 +23,23 @@ def signup_view(request):
     context = {'form': form}
     return render(request, 'accounts/signup_view.html', context)
 
-
 def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             #log in the user
-            return redirect('articles:list')
+            user = form.get_user()
+            login(request, user)
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect('articles:list')
     else:
         form = AuthenticationForm()
 
     return render(request, 'accounts/login.html', {'form': form})
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+    return redirect('articles:list')

@@ -2,6 +2,7 @@ from django.http.response import Http404, HttpResponse
 from django.shortcuts import render
 from .models import Article
 from django.http.response import HttpResponse, Http404
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -25,3 +26,7 @@ def article_detail(request, slug_id):
     # context = {'detail': detail}
     # return render(request, 'articles/article_detail.html', context)
     # return HttpResponse(slug)
+
+@login_required(login_url="/accounts/login/")
+def article_create(request):
+    return render(request, 'articles/article_create.html')
