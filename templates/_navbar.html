@@ -4,13 +4,38 @@
     <a class="navbar-brand" href="{% url 'articles:list' %}"
       ><img src="{% static 'logo.png' %}" alt="logo"
     /></a>
-    <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'accounts:logout' %}">
-		{% csrf_token %}
-      <span>
-        <button class="btn btn-success my-2 my-sm-0" type="submit">
-          Logout
-        </button>
-      </span>
-    </form>
+    {% if user.is_authenticated %}
+    <span>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="btn btn-primary" href="{% url 'articles:create' %}"
+            >New Article</a>
+        </li>
+        <form method="POST" action="{% url 'accounts:logout' %}">
+          {% csrf_token %}
+          <button class="btn btn-success my-2 my-sm-0" type="submit">
+            Logout
+          </button>
+        </form>
+      </ul>
+    </span>
+    {% else %}
+    <span>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <form method="POST" action="{% url 'accounts:signup' %}">
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Signup</button>
+          </form>
+        </li>
+        <li class="nav-item active">
+          <form method="POST" action="{% url 'accounts:login' %}">
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Login</button>
+          </form>
+        </li>
+      </ul>
+    </span>
+    {% endif %}
   </div>
 </nav>

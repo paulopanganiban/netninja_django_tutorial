@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import  views
-
+from articles import views as article_views
 #static files
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 #media files upload the static folders
@@ -29,7 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('polls/', include('polls.urls'))
     path('about/', views.about),
-    path('', views.homepage),
+    path('', article_views.article_list, name="home"),
     # including apps
     path('articles/', include('articles.urls')),
     path('accounts/', include('accounts.urls')),
