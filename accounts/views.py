@@ -31,4 +31,5 @@ def login_view(request):
             return redirect('articles:list')
     else:
         form = AuthenticationForm()
-        return render(request, 'accounts/login.html', {'form': form})
+
+    return render(request, 'accounts/login.html', {'form': form})
